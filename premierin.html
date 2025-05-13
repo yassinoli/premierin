@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Review Soufiane - Premier Inn</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 25px 20px;
+      max-width: 450px;
+      width: 90%;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    h2 {
+      color: #511e62;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .comment-box {
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #511e62;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3e154a;
+    }
+
+    @media screen and (max-width: 480px) {
+      .comment-box {
+        font-size: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="https://www.premierinn.com/content/dam/pi/websites/desktop/icons/brand/pi-logo-rest-easy.svg" alt="Premier Inn Logo">
+    
+    <h2>⭐ Leave a Review for Soufiane</h2>
+    <p class="note">Please copy the comment below. You’ll be redirected to the review page.<br><strong>⭐ If you're happy with the service, don’t forget to leave a 5-star rating!</strong></p>
+    
+    <div class="comment-box" id="commentBox"></div>
+
+    <button onclick="copyAndRedirect()">Copy & Go to Google Review</button>
+  </div>
+
+  <script>
+    const phrases = [
+      "I had an amazing experience thanks to Soufiane! He was professional, friendly, and very helpful.",
+      "Soufiane went above and beyond to ensure we had a great stay. Truly outstanding service!",
+      "Excellent service from Soufiane. He made our visit memorable!",
+      "Huge thanks to Soufiane for his dedication and exceptional hospitality!",
+      "Soufiane made us feel at home. Great attitude and wonderful service!",
+      "Amazing hospitality by Soufiane – highly recommend him!",
+      "Soufiane is the reason our stay was so pleasant. Thank you!",
+      "Exceptional care and service from Soufiane. A true professional!",
+      "Very polite and helpful – thank you Soufiane for your great service!",
+      "Soufiane was always there when we needed help. Outstanding!",
+      "Thanks Soufiane for your warm welcome and great service!",
+      "I was impressed by Soufiane’s professionalism. Great job!",
+      "Soufiane made everything easy for us. Thank you!",
+      "Fantastic customer care by Soufiane!",
+      "Soufiane provided top-level service. 5 stars!",
+      "A big thank you to Soufiane for his excellent support!",
+      "Courteous, kind, and professional – thank you Soufiane!",
+      "Great attention to detail from Soufiane – excellent!",
+      "Very satisfied with Soufiane’s help during our visit.",
+      "The best service ever – thank you Soufiane!"
+    ];
+
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    const randomComment = phrases[randomIndex];
+    document.getElementById("commentBox").innerText = randomComment;
+
+    function copyAndRedirect() {
+      navigator.clipboard.writeText(randomComment).then(() => {
+        alert("✅ Comment copied! You will now be redirected to the review page.");
+        const placeId = "ChIJNU4F1QPcRT4RTezoWT8m0bA";
+        const url = `https://search.google.com/local/writereview?placeid=${placeId}`;
+        window.open(url, '_blank');
+      }).catch(err => {
+        alert("❌ Failed to copy. Please try manually.");
+      });
+    }
+  </script>
+</body>
+</html>
